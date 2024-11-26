@@ -1,9 +1,3 @@
-'''
-Author: Cheryl Tse
-Date: 2023-11-24 09:58:55
-LastEditTime: 2023-11-26 22:33:32
-Description: 在夏老师的原始代码的基础上,增加了第64行,以避免对空类簇构造粒球
-'''
 from collections import Counter
 from sklearn.cluster._kmeans import k_means
 import numpy as np

@@ -1,7 +1,7 @@
 '''
 Author: Cheryl Tse
 Date: 2023-04-03 10:31:22
-LastEditTime: 2023-12-09 15:11:10
+LastEditTime: 2024-11-26 20:10:06
 Description: 
 '''
 import csv
@@ -30,7 +30,6 @@ from sklearn.naive_bayes import GaussianNB
 import Bound_GBS
 import radomSamp
 import XIA_GBS,GBS_Imbalanced
-import Bound_GBS_C
 #import BLS
 
 def fitClass(X_train, Y_train, X_test, Y_test, ClassMothed):
@@ -311,7 +310,7 @@ def main_ori(k=5,Noise_ratio = 0):
 
 #直接以训练好的GBs作为分类器的input(不包含GBG过程)
 #input 可以是GBABS训练得到的采样后集合,也可以是其他方法训练得到的采样集合
-def main(Noise_ratio=0):
+'''def main(Noise_ratio=0):
     warnings.filterwarnings("ignore")  # 忽略警告
     data_list = ['creditApproval','diabetes','car',
         'Pumpkin_Seeds_Dataset','banana','page-blocks',
@@ -425,7 +424,7 @@ def main(Noise_ratio=0):
                 baseacc_sum_fold += baseacc
                 basef1_sum_fold += basef1 
                 baseg_mean_sum_fold += baseg_mean
-                '''#SMOTE非平衡数据采样方法
+                #SMOTE非平衡数据采样方法
                 sm = SMOTE(random_state=1)
                 smX_res, smy_res = sm.fit_resample(X_train, Y_train)
                 smg_mean = fitClass(smX_res, smy_res, X_test, Y_test, baseline)[-1]
@@ -449,7 +448,7 @@ def main(Noise_ratio=0):
                 enn = EditedNearestNeighbours()
                 ennX_res, enny_res = enn.fit_resample(X_train, Y_train)
                 enng_mean = fitClass(ennX_res, enny_res, X_test, Y_test, baseline)[-1]
-                enng_mean_sum_fold += enng_mean'''
+                enng_mean_sum_fold += enng_mean
                 fold +=1
             RANDSacc_sum += RANDSacc_sum_fold
             BND_GBSacc_sum += BND_GBSacc_sum_fold
@@ -510,7 +509,7 @@ def main(Noise_ratio=0):
         print('avg g_mean of EditedNearestNeighbours:', enng_mean_sum/(flag*5))
         print('avg g_mean of BorderlineSMOTE:', bsmg_mean_sum/(flag*5))
         print('avg g_mean of ' + baseline +':' , baseg_mean_sum/(flag*5))
-        print('--------------------------------------------')
+        print('--------------------------------------------')'''
 
 
 if __name__ == '__main__':
@@ -542,5 +541,5 @@ if __name__ == '__main__':
     for i in Noise_ratio:
         #print('Noise_ratio:',Noise_ratio)
         main(i)'''
-    #main_ori(5,0)
-    main(0.3)
+    main_ori(5,0)
+    #main(0.3)

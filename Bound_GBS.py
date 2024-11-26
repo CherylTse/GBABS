@@ -1,32 +1,19 @@
 '''
 Author: Cheryl Tse
-Date: 2023-06-14 14:48:23
-LastEditTime: 2023-11-24 11:10:40
+Date: 2024-11-26 15:56:43
+LastEditTime: 2024-11-26 20:09:16
 Description: 
 '''
-
 import numpy as np
-from matplotlib import pyplot as plt
 
 import randomDEN_GBG
-
-
-
 
 def bound_sampling(data,k):
     bnd_gbs = []
     postsampling = []
     postsampling_index = []
-    #GB_list,centerlist,centroidlist = randomDEN_GBG.generateGBList(data,k)
     GB_list,centerlist = randomDEN_GBG.generateGBList(data,k)
-    #print('num of gbs in randomDEN_GBG:',len(GB_list))
-    #main.plot_2(undo_data)
-    #main.plot_gb_2(GB_list)
     positionlist = np.array(centerlist)
-   # positionlist = np.array(centroidlist)
-
-    #main.plot_gb_2(GB_list)
-    #main.plot_2(centerlist)
     #在每一个特征维度上确定类边界上的异质balls，作为类边界粒球
     #i表示第i个特征
     for i in range(len(data[1])-2):
