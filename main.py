@@ -1,10 +1,4 @@
-'''
-Author: Cheryl Tse
-Date: 2023-04-03 10:31:22
-LastEditTime: 2024-11-26 20:10:06
-Description: 
-'''
-
+from collections import Counter
 import warnings
 import numpy as np
 import pandas as pd
@@ -52,7 +46,6 @@ def fitClass(X_train, Y_train, X_test, Y_test, ClassMothed):
 
 def main(rho=5, Noise_ratio = 0):
     warnings.filterwarnings("ignore") 
-    data_list = ['creditApproval','diabetes','car']
     data_list = ['creditApproval']
     purity = 1.0  # Purity threshold for Xia's sampling method
     repetitions = 5    # Number of repetitions for each dataset
@@ -64,12 +57,12 @@ def main(rho=5, Noise_ratio = 0):
         flag = 0   
         print(data_nm)
         print('--------------------------------------------')
-        data_frame = pd.read_csv(r"/Users/xieqin/Documents/dataset/noise/noise" + str(Noise_ratio) + '/'+ data_nm + str(Noise_ratio) + ".csv",
+        data_frame = pd.read_csv(r"./datasets/noise" + str(Noise_ratio) + '/'+ data_nm + str(Noise_ratio) + ".csv",
                              header=None)  
         data = data_frame.values 
         data = np.array(data)
-        #print(data.shape)
-        #print(Counter(data[:, 0]))
+        print(data.shape)
+        print(Counter(data[:, 0]))
         numberSample = data.shape[0]
         minMax = MinMaxScaler()
         data = np.hstack((data[:, 0].reshape(numberSample, 1),
