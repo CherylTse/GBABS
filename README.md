@@ -104,10 +104,5 @@ Experiments show that GBABS can achieve comparable or even better classification
 If you use the GBABS algorithm or this code in your research, please cite the original paper:
 
 ```
-@article{xie2023approximate,
-  title={Approximate Borderline Sampling using Granular-Ball for Classification Tasks},
-  author={Xie, Qin and Tse, Cheryl and Feng, Quan and Yang, Yingqin},
-  journal={[Journal Name]},
-  year={2023}
-}
+tbc
 ```
